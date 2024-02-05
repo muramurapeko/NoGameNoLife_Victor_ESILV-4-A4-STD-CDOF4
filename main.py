@@ -81,6 +81,14 @@ def update(frameNum, img, grid, N):
 	grid[:] = newGrid[:]
 	return img,
 
+def save_grid(grid, filename):
+    df = pd.DataFrame(grid)
+    df.to_csv(filename, index=False, header=False)
+
+def load_grid(filename):
+    df = pd.read_csv(filename, header=None)
+    return df.values.tolist()
+
 # main() function
 def main():
 
